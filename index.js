@@ -5,11 +5,15 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
+// FOR UPLOADING AWS SERVER THIS IS OPENED. BUT FOR LOCAL THIS IS CLOSED
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
+
+// FOR UPLOADING AWS SERVER THIS IS CLOSED. BUT FOR LOCAL THIS IS OPENED
+// var databaseUri = 'mongodb://dbadmin:drinkotonAdmin@ds049276-a0.mlab.com:49276,ds049276-a1.mlab.com:49276/drinkotron?replicaSet=rs-ds049276';
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -19,6 +23,15 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+  },
+  oauth: {
+   twitter: {
+     consumer_key: "PmZ4UCntiAD5d9tMNxy5u0pTO", // REQUIRED
+     consumer_secret: "25yg71FF1hYCjfvDvPC3JiBBKvvMQTN9sLDPA26cMvACB1OLnO" // REQUIRED
+   },
+   facebook: {
+     appIds: "684182168316920"
+   }
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
