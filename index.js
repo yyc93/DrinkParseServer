@@ -32,6 +32,20 @@ var api = new ParseServer({
    facebook: {
      appIds: "684182168316920"
    }
+  },
+  push: {
+    ios: [
+      {
+        pfx: 'push_drinkotron_dev.p12', // Dev PFX or P12
+        bundleId: 'com.travis.drinkotron',
+        production: false // Dev
+      },
+      {
+        pfx: 'push_drinkotron_dist.p12', // Prod PFX or P12
+        bundleId: 'com.travis.drinkotron',  
+        production: true // Prod
+      }
+    ]
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
