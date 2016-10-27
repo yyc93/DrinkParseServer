@@ -35,11 +35,11 @@ var api = new ParseServer({
   },
   push: {
     ios: [
-      {
-        pfx: 'push_drinkotron_dev.p12', // Dev PFX or P12
-        bundleId: 'com.travis.drinkotron',
-        production: false // Dev
-      },
+      // {
+      //   pfx: 'push_drinkotron_dev.p12', // Dev PFX or P12
+      //   bundleId: 'com.travis.drinkotron',
+      //   production: false // Dev
+      // },
       {
         pfx: 'push_drinkotron_dist.p12', // Prod PFX or P12
         bundleId: 'com.travis.drinkotron',  
