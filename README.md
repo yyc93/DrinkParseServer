@@ -1,4 +1,4 @@
-# parse-server-example
+# parse-server for Drinking iOS/Android app
 
 Example project using the [parse-server](https://github.com/ParsePlatform/parse-server) module on Express.
 
